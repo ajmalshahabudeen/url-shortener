@@ -1,4 +1,3 @@
-import { and, eq } from "drizzle-orm";
 import { user } from "~/drizzle/schema";
 import { db } from "~/utils/db";
 
@@ -28,7 +27,7 @@ export default defineEventHandler(async (event) => {
         setResponseStatus(event, 404);
         return {
           data: "error",
-          message: "User Not Found",
+          message: "User Not Registered",
         };
       }
       setResponseStatus(event, 200);
