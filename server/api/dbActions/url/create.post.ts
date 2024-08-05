@@ -4,6 +4,7 @@ import { db } from "~/utils/db";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  console.log(body);
   const { url_length, url_value, user_id } = body;
 
   if (validateBody(body)) {

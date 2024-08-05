@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.18.3",
+    "copy-text-to-clipboard": "^3.2.0",
     "drizzle-orm": "^0.32.1",
     "nuxt": "^3.12.4",
     "postgres": "^3.4.4",
