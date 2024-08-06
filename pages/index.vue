@@ -89,7 +89,7 @@ watch(copied, () => {
 
 watch(data, () => {
   if (data.value) {
-    shortUrl.value = "localhost:3000/" + data.value;
+    shortUrl.value = "url-shorte.vercel.app/" + data.value;
   }
 });
 

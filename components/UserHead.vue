@@ -1,15 +1,31 @@
 <script setup lang="ts">
+
+const userEmail = ref("");
+const loggedIn = ref(false);
+const SignLabel = ref("");
+
+onMounted(() => {
+  userEmail.value = sessionStorage.getItem("user_email") || "anonymous";
+  if (userEmail.value !== "anonymous") {
+    SignLabel.value = "Sign out";
+    loggedIn.value = true;
+  } else {
+    SignLabel.value = "Sign in";
+    loggedIn.value = false;
+  }
+})
+
 const items = [
   [
     {
-      label: "ben@example.com",
+      label: userEmail,
       slot: "account",
       disabled: true,
     },
   ],
   [
     {
-      label: "Settings",
+      label: "Credits",
       icon: "i-heroicons-cog-8-tooth",
     },
   ],
@@ -29,11 +45,13 @@ const items = [
   ],
   [
     {
-      label: "Sign out",
-      icon: "i-heroicons-arrow-left-on-rectangle",
+      label: SignLabel,
+      icon: "heroicons-outline:arrow-left-on-rectangle",
     },
   ],
 ];
+
+
 </script>
 
 <template>
