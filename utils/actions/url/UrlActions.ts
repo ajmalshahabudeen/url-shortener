@@ -16,6 +16,15 @@ export const CreateShortUrl = async (url: string) => {
   return Key;
 };
 
+
 export const GetShortUrl = async (key: string) => {
-  console.log(key);
-};
+  const res:any = await $fetch("/api/dbActions/url/find?key=" + key, {
+    method: "GET", 
+  })
+  // console.log(res);
+  if (res?.message == "Found URL") {
+    return res?.value[0]?.url_value
+  } else {
+    return null
+  }
+}
