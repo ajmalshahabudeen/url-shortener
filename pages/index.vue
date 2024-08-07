@@ -97,12 +97,12 @@ const createUrl = async () => {
   if (url_value.value) {
     // console.log(url_value.value);
     const res = await CreateShortUrl(url_value.value);
-    console.log(res);
+    // console.log(res);
     if (res) {
       data.value = res;
     }
   } else {
-    console.log("no value");
+    // console.log("no value");
     no_value.value = true;
   }
 };

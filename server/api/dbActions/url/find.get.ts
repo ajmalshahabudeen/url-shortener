@@ -13,7 +13,7 @@ export default defineEventHandler(async (event) => {
       });
 
       if (res.length == 0) {
-        setResponseStatus(event, 404);
+        setResponseStatus(event, 200);
         return {
           message: "Failed to find URL",
           value: null,
@@ -26,14 +26,14 @@ export default defineEventHandler(async (event) => {
         };
       }
     } catch (err) {
-      setResponseStatus(event, 404);
+      setResponseStatus(event, 200);
       return {
         message: "Failed to find URL",
         value: null,
       };
     }
   }
-  setResponseStatus(event, 404);
+  setResponseStatus(event, 200);
   return {
     message: "Failed to find URL",
     value: null,

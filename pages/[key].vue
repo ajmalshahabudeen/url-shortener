@@ -39,7 +39,7 @@ const fetchUrl = async () => {
   const key = route.params.key as string
   const url = await GetShortUrl(key)
   Url.value = url
-  console.log(url)
+  // console.log(url)
 }
 
 const SecureUrl = (val:string) => {
