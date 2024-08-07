@@ -23,7 +23,7 @@ export const GetShortUrl = async (key: string) => {
   })
   // console.log(res);
   if (res?.message == "Found URL") {
-    return res?.value[0]?.url_value
+    return res?.value?.url_value
   } else {
     return null
   }

@@ -8,11 +8,11 @@ export default defineEventHandler(async (event) => {
     console.log(key);
 
     try {
-      const res = await db.query.url.findMany({
+      const res = await db.query.url.findFirst({
         where: (url, { eq }) => eq<any>(url.url_key, key),
       });
 
-      if (res.length == 0) {
+      if (res === undefined) {
         setResponseStatus(event, 200);
         return {
           message: "Failed to find URL",
