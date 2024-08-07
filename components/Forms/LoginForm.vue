@@ -44,8 +44,8 @@ watch(error, () => {
 const clearStuff = () => {
   state.email = undefined;
   state.password = undefined;
+  success.value ? reloadNuxtApp({ path: "/", ttl: 1000 }) : null;
   const interval = setInterval(() => {
-    success.value ? navigateTo("/", { replace: true }) : null;
     success.value = false;
     error.value = false;
     clearInterval(interval);
