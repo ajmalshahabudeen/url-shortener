@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 const userEmail = ref("");
 const loggedIn = ref(false);
 const SignLabel = ref("");
@@ -13,7 +12,7 @@ onMounted(() => {
     SignLabel.value = "Sign in";
     loggedIn.value = false;
   }
-})
+});
 
 const items = [
   [
@@ -25,22 +24,36 @@ const items = [
   ],
   [
     {
-      label: "Credits",
-      icon: "i-heroicons-cog-8-tooth",
+      label: "Dashboard",
+      icon: "mingcute:grid-2-line",
+      to: "/dashboard",
     },
   ],
   [
     {
       label: "Documentation",
       icon: "i-heroicons-book-open",
+      click: () => {
+        navigateTo("https://github.com/ajmalshahabudeen/url-shortener/blob/master/README.md", {
+          external: true,
+          open: { target: "_blank" },
+        });
+      },
     },
     {
-      label: "Changelog",
-      icon: "i-heroicons-megaphone",
+      label: "Credits",
+      icon: "material-symbols-light:family-star-outline-sharp",
+      click: () => {
+        navigateTo("https://ajmalshahabudeen.vercel.app", {
+          external: true,
+          open: { target: "_blank" },
+        });
+      },
     },
     {
       label: "Status",
       icon: "i-heroicons-signal",
+      to: "/status",
     },
   ],
   [
@@ -50,8 +63,6 @@ const items = [
     },
   ],
 ];
-
-
 </script>
 
 <template>
