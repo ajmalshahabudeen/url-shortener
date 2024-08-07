@@ -1,3 +1,5 @@
+import { eq } from "drizzle-orm";
+import { url } from "~/drizzle/schema";
 import { db } from "~/utils/db";
 
 export default defineEventHandler(async (event) => {
@@ -8,7 +10,7 @@ export default defineEventHandler(async (event) => {
     console.log(key);
 
     try {
-      const res = await db.query.url.findFirst({
+      const res: any = await db.query.url.findFirst({
         where: (url, { eq }) => eq<any>(url.url_key, key),
       });
 
@@ -19,6 +21,10 @@ export default defineEventHandler(async (event) => {
           value: null,
         };
       } else {
+        await db
+          .update(url)
+          .set({ vistors_count: res.vistors_count + 1 })
+          .where(eq(url.id, res.id));
         setResponseStatus(event, 200);
         return {
           message: "Found URL",
