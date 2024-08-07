@@ -14,6 +14,10 @@ onMounted(() => {
   }
 });
 
+watch(loggedIn, () => {
+  userEmail.value = sessionStorage.getItem("user_email") || "anonymous";
+});
+
 const items = [
   [
     {
@@ -34,10 +38,13 @@ const items = [
       label: "Documentation",
       icon: "i-heroicons-book-open",
       click: () => {
-        navigateTo("https://github.com/ajmalshahabudeen/url-shortener/blob/master/README.md", {
-          external: true,
-          open: { target: "_blank" },
-        });
+        navigateTo(
+          "https://github.com/ajmalshahabudeen/url-shortener/blob/master/README.md",
+          {
+            external: true,
+            open: { target: "_blank" },
+          }
+        );
       },
     },
     {
@@ -60,6 +67,18 @@ const items = [
     {
       label: SignLabel,
       icon: "heroicons-outline:arrow-left-on-rectangle",
+      click: () => {
+        if (loggedIn.value) {
+          sessionStorage.removeItem("user_email");
+          loggedIn.value = false;
+          SignLabel.value = "Sign in";
+        } else {
+          // sessionStorage.setItem("user_email", "useremail@vue.com");
+          // loggedIn.value = true;
+          // SignLabel.value = "Sign out";
+          navigateTo("/user/login");
+        }
+      },
     },
   ],
 ];

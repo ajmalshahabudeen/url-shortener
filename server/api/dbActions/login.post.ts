@@ -19,13 +19,11 @@ export default defineEventHandler(async (event) => {
         );
 
       if (res.length == 0) {
-        setResponseStatus(event, 404);
         return {
           data: "error",
           message: "User Not Found",
         };
       }
-      setResponseStatus(event, 200);
       return {
         data: res,
         message: "User Found",
@@ -38,7 +36,6 @@ export default defineEventHandler(async (event) => {
     }
   } catch (err) {
     console.log("Something went wrong at Database");
-    setResponseStatus(event, 500);
     return {
       data: "error",
     };
