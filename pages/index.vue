@@ -16,11 +16,20 @@
           autofocus
         />
         <UButton
+          v-if="!loading"
           :onclick="() => createUrl()"
           color="primary"
           variant="solid"
           icon="material-symbols:kid-star-outline-sharp"
           class="font-extralight text-xl p-3"
+        />
+        <UButton
+          v-else
+          color="primary"
+          variant="solid"
+          icon="line-md:loading-twotone-loop"
+          class="font-extralight text-xl p-3"
+          disabled
         />
       </div>
       <p v-if="no_value" class="absolute text-orange-500 pt-4">
@@ -93,15 +102,20 @@ watch(data, () => {
   }
 });
 
+const loading = ref(false);
+
 const createUrl = async () => {
+  loading.value = true;
   if (url_value.value) {
     // console.log(url_value.value);
     const res = await CreateShortUrl(url_value.value);
     // console.log(res);
     if (res) {
+      loading.value = false;
       data.value = res;
     }
   } else {
+    loading.value = false;
     // console.log("no value");
     no_value.value = true;
   }
