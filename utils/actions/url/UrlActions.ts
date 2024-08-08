@@ -28,3 +28,19 @@ export const GetShortUrl = async (key: string) => {
     return null
   }
 }
+
+export const GetUserUrls = async () => {
+  const user_email = sessionStorage.getItem("user_email") || "anonymous";
+  if (user_email !== "anonymous") {
+    const res: any = await $fetch("/api/dbActions/user/personalUrls?user_id=" + user_email, {
+      method: "GET",
+    })
+
+  } else {
+    return {
+      message: "error",
+      value: false,
+      data: null
+    }
+  }
+}
