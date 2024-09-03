@@ -10,5 +10,8 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/ui", "@pinia/nuxt"],
+  modules: ["@nuxt/ui", "@pinia/nuxt", '@nuxtjs/google-adsense'],
+  googleAdsense: {
+    id: 'ca-pub-1356961589183474'
+  }
 });
