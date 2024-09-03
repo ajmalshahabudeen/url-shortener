@@ -11,7 +11,7 @@ useHead({
   title: 'Url Shortener',
   meta: [
     { name: 'description', content: 'Shorten your urls' },
-    { name: 'google-adsense-account', content: 'ca-pub-1356961589183474' },
+    // { name: 'google-adsense-account', content: 'ca-pub-1356961589183474' },
   ]
 })
 

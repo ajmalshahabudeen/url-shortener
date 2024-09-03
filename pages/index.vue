@@ -64,7 +64,7 @@
         class="mt-3"
       />
     </div>
-    <div class="min-w-full min-h-14 fixed bottom-0">
+    <div class="w-full h-14 fixed bottom-0">
       <Adsbygoogle />
     </div>
   </div>
