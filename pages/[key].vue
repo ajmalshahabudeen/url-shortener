@@ -10,6 +10,9 @@
       Redirecting to <span class="border border-dashed p-3"> {{ Url }} </span>
       <Icon name="svg-spinners:blocks-shuffle-2" />
     </p>
+    <div class="min-w-full min-h-14 fixed bottom-0">
+      <Adsbygoogle />
+    </div>
   </div>
 </template>
 
