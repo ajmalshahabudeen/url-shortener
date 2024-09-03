@@ -12,6 +12,9 @@ export default defineNuxtConfig({
 
   modules: ["@nuxt/ui", "@pinia/nuxt", '@nuxtjs/google-adsense'],
   googleAdsense: {
-    id: 'ca-pub-1356961589183474'
+    id: 'ca-pub-1356961589183474',
+    pageLevelAds: true,
+    onPageLoad: true,
+    overlayBottom: true,
   }
 });
