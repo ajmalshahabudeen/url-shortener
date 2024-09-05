@@ -100,9 +100,9 @@ watch(copied, () => {
 });
 
 const config = useRuntimeConfig()
-const pr_url = config.public.baseUrl
 watch(data, () => {
   if (data.value) {
+    const pr_url = config.public.baseUrl
     shortUrl.value = pr_url + data.value;
   }
 });

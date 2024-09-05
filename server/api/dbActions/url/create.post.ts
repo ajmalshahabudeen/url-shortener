@@ -1,4 +1,3 @@
-import { eq } from "drizzle-orm";
 import { url } from "~/drizzle/schema";
 import { db } from "~/utils/db";
 

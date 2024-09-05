@@ -1,4 +1,4 @@
-import { pgTable, varchar, integer } from "drizzle-orm/pg-core"
+import { pgTable, varchar, text, integer } from "drizzle-orm/pg-core"
   import { sql } from "drizzle-orm"
 
 
@@ -15,7 +15,7 @@ export const url = pgTable("url", {
 	id: varchar("id", { length: 255 }).primaryKey().notNull(),
 	user_id: varchar("user_id", { length: 255 }).notNull(),
 	url_key: varchar("url_key", { length: 10 }).notNull(),
-	url_value: varchar("url_value", { length: 255 }).notNull(),
+	url_value: text("url_value").notNull(),
 	date: varchar("date", { length: 30 }),
 	vistors_count: integer("vistors_count").default(0),
 });
