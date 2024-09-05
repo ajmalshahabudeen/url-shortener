@@ -6,9 +6,11 @@
         Loading 
         <Icon name="svg-spinners:180-ring-with-bg" />
     </p>
-    <p v-if="Url" class="text-4xl flex flex-col md:flex-row gap-7 items-center m-auto">
-      Redirecting to <span class="border border-dashed p-3"> {{ Url }} </span>
-      <Icon name="svg-spinners:blocks-shuffle-2" />
+    <p v-if="Url" class="text-4xl flex flex-col gap-7 items-center m-auto">
+      <span class="text-primary">Redirecting to</span> <span @click="copyTextToClipboard(Url)" class="border border-dashed p-3 overflow-y-scroll max-w-[90vw] truncate"> {{ Url }} </span>
+      <p class="text-sm text-center -translate-y-5">click the above link to copy</p>
+      <p class="text-sm text-center -translate-y-10">Will automatically redirect in 5 seconds</p>
+      <Icon name="svg-spinners:blocks-shuffle-2" class="text-green-700" />
     </p>
     <div class="min-w-full min-h-14 fixed bottom-0">
       <Adsbygoogle />
@@ -18,6 +20,7 @@
 
 <script lang="ts" setup>
 import { GetShortUrl } from '~/utils/actions/url/UrlActions';
+import copyTextToClipboard from "copy-text-to-clipboard";
 
 const route = useRoute()
 const Url = ref(null)
@@ -28,7 +31,7 @@ onMounted(() => {
   const interval = setInterval(() => {
     ready.value = true
     clearInterval(interval)
-  }, 3000)
+  }, 5000)
 })
 
 watch(ready, () => {

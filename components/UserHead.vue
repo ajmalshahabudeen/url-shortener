@@ -32,6 +32,11 @@ const items = [
       icon: "mingcute:grid-2-line",
       to: "/dashboard",
     },
+    {
+      label: "Privacy Policy",
+      icon: "uis:document-layout-left",
+      to: "/privacy-policy",
+    },
   ],
   [
     {

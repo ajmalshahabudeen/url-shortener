@@ -2,6 +2,15 @@
   <div
     class="flex flex-col gap-10 justify-center items-center min-h-[60vh] md:min-h-[90vh]"
   >
+    <UContainer>
+      <p class="text-3xl md:text-5xl md:py-10 font-extralight md:text-center">
+        <span class="text-primary text-4xl md:text-7xl"> Enter </span> Your Long
+        Hell
+        <span class="text-primary font-semibold text-4xl md:text-6xl">Url</span>
+        Here to <span class="underline underline-offset-8">Short</span> it For
+        <span class="text-green-500 text-6xl font-extrabold"> Free </span>
+      </p>
+    </UContainer>
     <UContainer class="relative">
       <div class="flex items-center gap-5">
         <UInput
@@ -41,7 +50,7 @@
       <UContainer
         class="bg-gray-100 dark:bg-gray-800 px-10 py-3 flex gap-4 rounded-lg items-center"
       >
-        <p class="border border-dashed py-2 px-5 rounded-lg">
+        <p class="border border-dashed py-2 px-3 rounded-lg">
           {{ shortUrl }}
         </p>
         <UButton
@@ -99,10 +108,10 @@ watch(copied, () => {
   }
 });
 
-const config = useRuntimeConfig()
+const config = useRuntimeConfig();
 watch(data, () => {
   if (data.value) {
-    const pr_url = config.public.baseUrl
+    const pr_url = config.public.baseUrl;
     shortUrl.value = pr_url + data.value;
   }
 });
