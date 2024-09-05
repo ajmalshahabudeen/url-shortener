@@ -9,6 +9,11 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.NUXT_PUBLIC_PR_URL || "http://localhost:3001/",
+    }
+  },
 
   modules: ["@nuxt/ui", "@pinia/nuxt", '@nuxtjs/google-adsense'],
   googleAdsense: {

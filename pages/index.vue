@@ -99,9 +99,11 @@ watch(copied, () => {
   }
 });
 
+const config = useRuntimeConfig()
+const pr_url = config.public.baseUrl
 watch(data, () => {
   if (data.value) {
-    shortUrl.value = "url-shorte.vercel.app/" + data.value;
+    shortUrl.value = pr_url + data.value;
   }
 });
 
