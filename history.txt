@@ -9,3 +9,9 @@
 - Also added the same content sections to `pages/[key].vue` (redirect page) for Google Ads.
 - CTA button on `[key].vue` links back to homepage instead of scrolling to top.
 - Build verified successfully for both pages.
+
+### 2026-02-15 - Added Sitemap & Robots Modules
+- Installed `@nuxtjs/sitemap@7.6.0` and `@nuxtjs/robots@5.7.0`.
+- Configured in `nuxt.config.ts` with site URL, sitemap exclusions, and robots rules.
+- Sitemap auto-generated at `/sitemap.xml`, robots at `/robots.txt`.
+- Build verified successfully.

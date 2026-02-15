@@ -12,14 +12,34 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseUrl: process.env.NUXT_PUBLIC_PR_URL || "http://localhost:3001/",
-    }
+    },
   },
 
-  modules: ["@nuxt/ui", "@pinia/nuxt", '@nuxtjs/google-adsense'],
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || "https://www.urlz.in",
+  },
+
+  modules: [
+    "@nuxt/ui",
+    "@pinia/nuxt",
+    "@nuxtjs/google-adsense",
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
+  ],
+
+  sitemap: {
+    exclude: ["/dashboard/**"],
+  },
+
+  robots: {
+    allow: "/",
+    sitemap: "/sitemap.xml",
+  },
+
   googleAdsense: {
-    id: 'ca-pub-1356961589183474',
+    id: "ca-pub-1356961589183474",
     pageLevelAds: true,
     onPageLoad: true,
     overlayBottom: true,
-  }
+  },
 });
