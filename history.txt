@@ -1,0 +1,11 @@
+## Conversation History
+
+### 2026-02-15 - Added Landing Page Content Sections
+- Added rich content sections to `pages/index.vue` below the hero section to satisfy Google Ads content requirements.
+- Sections added: Features (6 cards with icons), How It Works (3 steps), Stats counters, Use Cases (4 cards), About with checklist, FAQ accordion (8 items), CTA button, and Footer with links.
+- Hero section (URL shortener input) was left completely untouched.
+- Build verified successfully.
+
+- Also added the same content sections to `pages/[key].vue` (redirect page) for Google Ads.
+- CTA button on `[key].vue` links back to homepage instead of scrolling to top.
+- Build verified successfully for both pages.
