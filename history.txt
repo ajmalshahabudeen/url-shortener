@@ -15,3 +15,7 @@
 - Configured in `nuxt.config.ts` with site URL, sitemap exclusions, and robots rules.
 - Sitemap auto-generated at `/sitemap.xml`, robots at `/robots.txt`.
 - Build verified successfully.
+
+### 2026-02-21 - AdSense Policy Analysis
+- Investigated AdSense policy violations regarding "screens without publisher-content".
+- Identified `pages/[key].vue` auto-redirect logic (`setInterval` -> `navigateTo(url)`) as the core issue for thin content / navigation violation.

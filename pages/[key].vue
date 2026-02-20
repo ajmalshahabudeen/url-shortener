@@ -8,10 +8,18 @@
         <Icon name="svg-spinners:180-ring-with-bg" />
     </p>
     <p v-if="Url" class="text-4xl flex flex-col gap-7 items-center m-auto">
-      <span class="text-primary">Redirecting to</span> <span @click="copyTextToClipboard(Url)" class="border border-dashed p-3 overflow-y-scroll max-w-[90vw] truncate"> {{ Url }} </span>
+      <span class="text-primary">Destination URL Ready</span> <span @click="copyTextToClipboard(Url)" class="border border-dashed p-3 overflow-y-scroll max-w-[90vw] truncate cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"> {{ Url }} </span>
       <p class="text-sm text-center -translate-y-5">click the above link to copy</p>
-      <p class="text-sm text-center -translate-y-10">Will automatically redirect in 5 seconds</p>
-      <Icon name="svg-spinners:blocks-shuffle-2" class="text-green-700" />
+      
+      <UButton
+        size="xl"
+        color="primary"
+        variant="solid"
+        label="Continue to Destination"
+        icon="i-heroicons-arrow-right-20-solid"
+        class="font-semibold px-8 py-3 mt-4"
+        @click="goToUrl(Url)"
+      />
     </p>
     <div class="min-w-full min-h-14 fixed bottom-0">
       <Adsbygoogle />
@@ -607,22 +615,17 @@ import copyTextToClipboard from "copy-text-to-clipboard";
 
 const route = useRoute()
 const Url = ref(null)
-const ready = ref(false)
 
 onMounted(() => {
   fetchUrl()
-  const interval = setInterval(() => {
-    ready.value = true
-    clearInterval(interval)
-  }, 5000)
 })
 
-watch(ready, () => {
-  if (Url.value) {
-    let url = SecureUrl(Url.value)
+const goToUrl = (targetUrl: string) => {
+  if (targetUrl) {
+    let url = SecureUrl(targetUrl)
     navigateTo(url, { external: true })
   }
-})
+}
 
 const fetchUrl = async () => {
   const key = route.params.key as string
