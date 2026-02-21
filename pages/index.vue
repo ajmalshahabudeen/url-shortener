@@ -74,9 +74,6 @@
         class="mt-3"
       />
     </div>
-    <div class="w-full h-14 fixed bottom-0">
-      <Adsbygoogle />
-    </div>
   </div>
 
   <!-- ==================== FEATURES SECTION ==================== -->
@@ -313,6 +310,15 @@
             Uptime Guarantee
           </p>
         </div>
+      </div>
+    </UContainer>
+  </section>
+
+  <!-- ==================== AD UNIT ==================== -->
+  <section class="py-6 px-4">
+    <UContainer>
+      <div class="max-w-4xl mx-auto">
+        <Adsbygoogle />
       </div>
     </UContainer>
   </section>

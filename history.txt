@@ -16,6 +16,9 @@
 - Sitemap auto-generated at `/sitemap.xml`, robots at `/robots.txt`.
 - Build verified successfully.
 
-### 2026-02-21 - AdSense Policy Analysis
-- Investigated AdSense policy violations regarding "screens without publisher-content".
-- Identified `pages/[key].vue` auto-redirect logic (`setInterval` -> `navigateTo(url)`) as the core issue for thin content / navigation violation.
+### 2026-02-21 - AdSense Policy Fixes Implemented
+- Disabled `pageLevelAds` and `onPageLoad` in `nuxt.config.ts` to stop auto-injecting ads on all pages.
+- Removed fixed-bottom `<Adsbygoogle />` overlay from `index.vue` hero section.
+- Removed fixed-bottom `<Adsbygoogle />` overlay from `[key].vue` redirect section.
+- Added `<Adsbygoogle />` between content-rich sections (Stats ↔ Use Cases) on both `index.vue` and `[key].vue`.
+- Build verified successfully (exit code 0).

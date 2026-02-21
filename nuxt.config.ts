@@ -38,8 +38,7 @@ export default defineNuxtConfig({
 
   googleAdsense: {
     id: "ca-pub-1356961589183474",
-    pageLevelAds: true,
-    onPageLoad: true,
-    overlayBottom: true,
+    pageLevelAds: false,
+    onPageLoad: false,
   },
 });
